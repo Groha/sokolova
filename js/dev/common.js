@@ -1,5 +1,8 @@
 import "./audio-player.min.js";
 //#region src/js/common/functions.js
+function getHash() {
+	if (location.hash) return location.hash.replace("#", "");
+}
 var bodyLockStatus = true;
 var bodyLockToggle = (delay = 500) => {
 	if (document.documentElement.hasAttribute("data-fls-scrolllock")) bodyUnlock(delay);
@@ -39,11 +42,42 @@ var bodyLock = (delay = 500) => {
 function uniqArray(array) {
 	return array.filter((item, index, self) => self.indexOf(item) === index);
 }
+var gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) => {
+	const targetBlockElement = document.querySelector(targetBlock);
+	if (targetBlockElement) {
+		let headerItem = "";
+		let headerItemHeight = 0;
+		if (noHeader) {
+			headerItem = "header.header";
+			const headerElement = document.querySelector(headerItem);
+			if (!headerElement.classList.contains("--header-scroll")) {
+				headerElement.style.cssText = `transition-duration: 0s;`;
+				headerElement.classList.add("--header-scroll");
+				headerItemHeight = headerElement.offsetHeight;
+				headerElement.classList.remove("--header-scroll");
+				setTimeout(() => {
+					headerElement.style.cssText = ``;
+				}, 0);
+			} else headerItemHeight = headerElement.offsetHeight;
+		}
+		if (document.documentElement.hasAttribute("data-fls-menu-open")) {
+			bodyUnlock();
+			document.documentElement.removeAttribute("data-fls-menu-open");
+		}
+		let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
+		targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
+		targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
+		window.scrollTo({
+			top: targetBlockElementPosition,
+			behavior: "smooth"
+		});
+	}
+};
 //#endregion
 //#region src/js/custom/video-grid.js
 document.addEventListener("DOMContentLoaded", () => {
 	const cards = document.querySelectorAll(".video-card");
-	const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+	const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 	function stopAllVideos(currentVideo = null) {
 		cards.forEach((card) => {
 			const video = card.querySelector(".video-element");
@@ -58,8 +92,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	cards.forEach((card) => {
 		const video = card.querySelector(".video-element");
 		const overlay = card.querySelector(".overlay-info");
+		const playIndicator = card.querySelector(".video-play");
 		if (!video) return;
-		if (isTouchDevice) card.addEventListener("click", () => {
+		video.addEventListener("play", () => {
+			if (playIndicator) playIndicator.hidden = true;
+		});
+		video.addEventListener("pause", () => {
+			if (playIndicator) playIndicator.hidden = false;
+		});
+		card.addEventListener("click", () => {
 			if (video.paused) {
 				stopAllVideos(video);
 				video.play().catch(() => {});
@@ -69,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				if (overlay) overlay.classList.remove("is-active");
 			}
 		});
-		else {
+		if (canHover) {
 			card.addEventListener("mouseenter", () => {
 				video.play().catch(() => {});
 			});
@@ -81,4 +122,4 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 });
 //#endregion
-export { bodyLockToggle as n, uniqArray as r, bodyLockStatus as t };
+export { gotoBlock as a, getHash as i, bodyLockToggle as n, uniqArray as o, bodyUnlock as r, bodyLockStatus as t };

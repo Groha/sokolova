@@ -1,4 +1,4 @@
-import { n as bodyLockToggle, r as uniqArray, t as bodyLockStatus } from "./common.min.js";
+import { a as gotoBlock, i as getHash, n as bodyLockToggle, o as uniqArray, r as bodyUnlock, t as bodyLockStatus } from "./common.min.js";
 //#region \0vite/modulepreload-polyfill.js
 (function polyfill() {
 	const relList = document.createElement("link").relList;
@@ -36,6 +36,12 @@ function menuInit() {
 		if (bodyLockStatus && e.target.closest("[data-fls-menu]")) {
 			bodyLockToggle();
 			document.documentElement.toggleAttribute("data-fls-menu-open");
+		} else if (e.target.closest("[data-fls-scrollto]") && document.documentElement.hasAttribute("data-fls-menu-open")) {
+			document.documentElement.removeAttribute("data-fls-menu-open");
+			if (bodyLockStatus) bodyUnlock(0);
+			else window.setTimeout(() => {
+				if (document.documentElement.hasAttribute("data-fls-scrolllock")) bodyUnlock(0);
+			}, 500);
 		}
 	});
 }
@@ -123,6 +129,60 @@ var ScrollWatcher = class {
 	}
 };
 document.querySelector("[data-fls-watcher]") && window.addEventListener("load", () => new ScrollWatcher({}));
+//#endregion
+//#region src/components/effects/scrollto/scrollto.js
+function pageNavigation() {
+	document.addEventListener("click", pageNavigationAction);
+	document.addEventListener("watcherCallback", pageNavigationAction);
+	function pageNavigationAction(e) {
+		if (e.type === "click") {
+			const targetElement = e.target;
+			if (targetElement.closest("[data-fls-scrollto]")) {
+				const gotoLink = targetElement.closest("[data-fls-scrollto]");
+				const gotoLinkSelector = gotoLink.dataset.flsScrollto ? gotoLink.dataset.flsScrollto : "";
+				const noHeader = gotoLink.hasAttribute("data-fls-scrollto-header") ? true : false;
+				const gotoSpeed = gotoLink.dataset.flsScrolltoSpeed ? gotoLink.dataset.flsScrolltoSpeed : 500;
+				const offsetTop = gotoLink.dataset.flsScrolltoTop ? parseInt(gotoLink.dataset.flsScrolltoTop) : 0;
+				if (window.flsFullpage) {
+					const fullpageSection = document.querySelector(`${gotoLinkSelector}`).closest("[data-fls-fullpage-section]");
+					const fullpageSectionId = fullpageSection ? +fullpageSection.dataset.flsFullpageId : null;
+					if (fullpageSectionId !== null) {
+						window.flsFullpage.switchingSection(fullpageSectionId);
+						if (document.documentElement.hasAttribute("data-fls-menu-open")) {
+							bodyUnlock();
+							document.documentElement.removeAttribute("data-fls-menu-open");
+						}
+					}
+				} else gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
+				e.preventDefault();
+			}
+		} else if (e.type === "watcherCallback" && e.detail) {
+			const entry = e.detail.entry;
+			const targetElement = entry.target;
+			if (targetElement.dataset.flsWatcher === "navigator") {
+				document.querySelector(`[data-fls-scrollto].--navigator-active`);
+				let navigatorCurrentItem;
+				if (targetElement.id && document.querySelector(`[data-fls-scrollto="#${targetElement.id}"]`)) navigatorCurrentItem = document.querySelector(`[data-fls-scrollto="#${targetElement.id}"]`);
+				else if (targetElement.classList.length) for (let index = 0; index < targetElement.classList.length; index++) {
+					const element = targetElement.classList[index];
+					if (document.querySelector(`[data-fls-scrollto=".${element}"]`)) {
+						navigatorCurrentItem = document.querySelector(`[data-fls-scrollto=".${element}"]`);
+						break;
+					}
+				}
+				if (entry.isIntersecting) navigatorCurrentItem && navigatorCurrentItem.classList.add("--navigator-active");
+				else navigatorCurrentItem && navigatorCurrentItem.classList.remove("--navigator-active");
+			}
+		}
+	}
+	if (getHash()) {
+		let goToHash;
+		if (document.querySelector(`#${getHash()}`)) goToHash = `#${getHash()}`;
+		else if (document.querySelector(`.${getHash()}`)) goToHash = `.${getHash()}`;
+		goToHash && gotoBlock(goToHash);
+	}
+}
+document.querySelector("[data-fls-scrollto]") && window.addEventListener("load", pageNavigation);
 //#endregion
 //#region src/components/effects/marquee/marquee.js
 var marquee = () => {

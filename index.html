@@ -5,18 +5,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Home Page</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1790440862525"></script>
-		<link rel="modulepreload" crossorigin="" href="./js/audio-player.min.js?v=1790440862525">
-		<link rel="modulepreload" crossorigin="" href="./js/common.min.js?v=1790440862525">
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1790440862525">
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1790444437430"></script>
+		<link rel="modulepreload" crossorigin="" href="./js/audio-player.min.js?v=1790444437430">
+		<link rel="modulepreload" crossorigin="" href="./js/common.min.js?v=1790444437430">
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1790444437430">
 	</head>
 	<body class="min-h-screen bg-[#050505] text-[#fafafa]">
 		<div class="wrapper">
 			<nav data-fls-header="" aria-label="Hauptnavigation" class="sticky top-0 z-50 border-b border-zinc-800 bg-[#050505]/80 backdrop-blur-sm">
 				<div class="mx-auto grid max-w-[100rem] grid-cols-2 items-center md:grid-cols-12">
-					<a href="#top" class="col-span-1 border-r border-zinc-800 px-6 py-4 font-serif text-lg italic tracking-tight md:col-span-3 md:px-10 relative z-50">G.&nbsp;Sokolova</a>
+					<a href="#top" class="col-span-1 md:border-r border-zinc-800 px-6 py-4 font-serif text-lg italic tracking-tight md:col-span-3 md:px-10 relative z-50">G.&nbsp;Sokolova</a>
 					<span class="hidden px-6 py-4 font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-500 md:col-span-3 lg:block md:border-r md:border-zinc-800 md:px-10">Portfolio / 2026</span>
-					<div class="col-span-1 md:col-span-9 lg:col-span-6 flex items-center justify-end px-6 py-4 md:px-0 md:py-0">
+					<div class="col-span-1 md:col-span-9 lg:col-span-6 flex items-center justify-end md:justify-start px-6 py-4 md:px-0 md:py-0">
 						<button type="button" data-fls-menu="" class="md:hidden relative flex flex-col justify-center items-end gap-1 w-8 h-8 z-50">
 							<span class="block w-6 h-px bg-[#fafafa] transition-all duration-300 ease-in-out"></span>
 							<span class="block w-6 h-px bg-[#fafafa] transition-all duration-300 ease-in-out [html[data-fls-menu-open]_&]:w-4"></span>
@@ -25,19 +25,16 @@
 						<nav class="fixed top-0 left-[-100%] w-full h-svh z-40 bg-[#050505] overflow-auto pt-20 pb-10 px-6 transition-[left] duration-300 ease-in-out [html[data-fls-menu-open]_&]:left-0 md:static md:w-auto md:h-auto md:z-auto md:bg-transparent md:overflow-visible md:p-0">
 							<ul class="flex flex-col gap-4 font-sans text-xl uppercase tracking-[0.2em] z-20 relative md:flex-row md:items-center md:justify-start md:gap-6 md:text-xs md:tracking-[0.25em] md:px-10 md:py-4">
 								<li>
-									<a href="https:/google.com" class="text-zinc-400 transition-colors duration-300 hover:text-[#fafafa]">Home</a>
+									<a href="#" data-fls-scrollto-top="60" data-fls-scrollto="#poesie" class="text-zinc-400 transition-colors duration-300 hover:text-[#fafafa]">Poesie</a>
 								</li>
 								<li>
-									<a href="#top" class="text-zinc-400 transition-colors duration-300 hover:text-[#fafafa]">Top</a>
+									<a href="#" data-fls-scrollto-top="60" data-fls-scrollto="#video" class="text-zinc-400 transition-colors duration-300 hover:text-[#fafafa]">Video</a>
 								</li>
 								<li>
-									<a href="#poesie" class="text-zinc-400 transition-colors duration-300 hover:text-[#fafafa]">Poesie</a>
+									<a href="#" data-fls-scrollto-top="60" data-fls-scrollto="#audio" class="text-zinc-400 transition-colors duration-300 hover:text-[#fafafa]">Audio</a>
 								</li>
 								<li>
-									<a href="#video" class="text-zinc-400 transition-colors duration-300 hover:text-[#fafafa]">Video</a>
-								</li>
-								<li>
-									<a href="#audio" class="text-zinc-400 transition-colors duration-300 hover:text-[#fafafa]">Audio</a>
+									<a href="#" data-fls-scrollto-top="60" data-fls-scrollto="#kontakt" class="text-zinc-400 transition-colors duration-300 hover:text-[#fafafa]">Kontakt</a>
 								</li>
 							</ul>
 						</nav>
@@ -45,7 +42,7 @@
 				</div>
 			</nav>
 			<main class="page">
-				<header id="top" class="border-b border-zinc-800">
+				<header class="border-b border-zinc-800">
 					<div class="mx-auto grid max-w-[100rem] grid-cols-1 md:grid-cols-12">
 						<div class="flex flex-col md:FLEX-ROW items-end justify-between border-b border-zinc-800 px-6 py-8 font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-500 md:col-span-3 md:flex-col md:items-start md:justify-between md:border-b-0 md:border-r md:px-10 md:py-14">
 							<span>Sankt Georgen, DE</span>
@@ -73,7 +70,7 @@
 							<span class="font-sans text-[.625rem] tracking-[0.3em] text-zinc-600">02</span>
 							<span class="font-serif text-xl italic leading-tight text-zinc-200 transition-colors duration-300 group-hover:text-[#fafafa] md:text-2xl">Poet</span>
 						</div>
-						<div class="group flex flex-col gap-6 px-6 py-8 md:px-10 md:py-10 border-l border-zinc-800 border-t border-zinc-800 md:border-t-0">
+						<div class="group flex flex-col gap-6 px-6 py-8 md:px-10 md:py-10 md:border-l border-zinc-800 border-t border-zinc-800 md:border-t-0">
 							<span class="font-sans text-[.625rem] tracking-[0.3em] text-zinc-600">03</span>
 							<span class="font-serif text-xl italic leading-tight text-zinc-200 transition-colors duration-300 group-hover:text-[#fafafa] md:text-2xl">Video Editor</span>
 						</div>
@@ -173,6 +170,7 @@
 							<!-- CUT_01 -->
 							<article class="video-card group relative aspect-video overflow-hidden border-zinc-800 cursor-pointer">
 								<video src="./assets/video/1.mp4" muted loop playsinline="" preload="metadata" class="video-element h-full w-full object-cover opacity-60 grayscale transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:opacity-90"></video>
+								<span class="video-play pointer-events-none absolute left-1/2 top-1/2 z-10 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/55 bg-black/35 pl-1 text-xl text-white transition duration-300" aria-hidden="true">▶</span>
 								<div class="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 md:p-8 pointer-events-none">
 									<h3 class="font-serif text-2xl italic leading-none md:text-3xl text-zinc-100">The Weight of Light</h3>
 									<span class="font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-400">CUT_01</span>
@@ -201,6 +199,7 @@
 							<!-- CUT_02 -->
 							<article class="video-card group relative aspect-video overflow-hidden border-zinc-800 sm:border-l border-t sm:border-t-0 cursor-pointer">
 								<video src="./assets/video/2.mp4" muted loop playsinline="" preload="metadata" class="video-element h-full w-full object-cover opacity-60 grayscale transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:opacity-90"></video>
+								<span class="video-play pointer-events-none absolute left-1/2 top-1/2 z-10 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/55 bg-black/35 pl-1 text-xl text-white transition duration-300" aria-hidden="true">▶</span>
 								<div class="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 md:p-8 pointer-events-none">
 									<h3 class="font-serif text-2xl italic leading-none md:text-3xl text-zinc-100">Nachtfahrt</h3>
 									<span class="font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-400">CUT_02</span>
@@ -229,6 +228,7 @@
 							<!-- CUT_03 -->
 							<article class="video-card group relative aspect-video overflow-hidden border-zinc-800 border-t cursor-pointer">
 								<video src="./assets/video/3.mp4" muted loop playsinline="" preload="metadata" class="video-element h-full w-full object-cover opacity-60 grayscale transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:opacity-90"></video>
+								<span class="video-play pointer-events-none absolute left-1/2 top-1/2 z-10 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/55 bg-black/35 pl-1 text-xl text-white transition duration-300" aria-hidden="true">▶</span>
 								<div class="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 md:p-8 pointer-events-none">
 									<h3 class="font-serif text-2xl italic leading-none md:text-3xl text-zinc-100">Underwood</h3>
 									<span class="font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-400">CUT_03</span>
@@ -257,6 +257,7 @@
 							<!-- CUT_04 -->
 							<article class="video-card group relative aspect-video overflow-hidden border-zinc-800 sm:border-l border-t cursor-pointer">
 								<video src="./assets/video/4.mp4" muted loop playsinline="" preload="metadata" class="video-element h-full w-full object-cover opacity-60 grayscale transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:opacity-90"></video>
+								<span class="video-play pointer-events-none absolute left-1/2 top-1/2 z-10 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/55 bg-black/35 pl-1 text-xl text-white transition duration-300" aria-hidden="true">▶</span>
 								<div class="absolute inset-x-0 bottom-0 flex items-end justify-between p-6 md:p-8 pointer-events-none">
 									<h3 class="font-serif text-2xl italic leading-none md:text-3xl text-zinc-100">Longpass</h3>
 									<span class="font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-400">CUT_04</span>
@@ -377,17 +378,17 @@
 			</main>
 			<footer id="kontakt">
 				<div class="mx-auto grid max-w-[100rem] grid-cols-1 md:grid-cols-12">
-					<div class="border-b border-zinc-800 px-2 py-10 sm:px-4 md:col-span-3 md:border-b-0 md:border-r md:px-10 md:py-16">
+					<div class="border-b border-zinc-800 px-6 py-10 sm:px-4 md:col-span-3 md:border-b-0 md:border-r md:px-10 md:py-16">
 						<h2 class="font-sans text-[.625rem] uppercase tracking-[0.35em] text-zinc-500">
 							<span class="mb-4 block text-zinc-600">§ 05</span>
 							Kontakt
 						</h2>
 					</div>
-					<div class="px-2 py-16 sm:px-4 md:col-span-9 md:px-10 md:py-24">
+					<div class="px-4 py-16 sm:px-4 md:col-span-9 md:px-10 md:py-24">
 						<p class="mb-10 font-sans text-xs text-center md:text-start uppercase tracking-[0.3em] text-zinc-500">Available for collaboration</p>
-						<a href="mailto:hallo@gannasokolova.de" class="group flex justify-center md:justify-start font-serif text-2xl font-medium leading-[1.05] tracking-tight transition-colors duration-300 hover:text-zinc-400 md:text-4xl lg:text-5xl lg:text-7xl">
+						<a href="mailto:hallo@gannasokolova.de" class="group flex items-center justify-center md:justify-start font-serif text-2xl font-medium leading-[1.05] tracking-tight transition-colors duration-300 hover:text-zinc-400 md:text-4xl lg:text-5xl lg:text-7xl">
 							hallo@gannasokolova.de
-							<svg aria-hidden="true" viewbox="0 0 24 24" class="ml-3 inline-block h-8 w-8 transition-transform duration-300 group-hover:translate-x-2 group-hover:-translate-y-1 md:h-12 md:w-12" fill="none" stroke="currentColor" stroke-width="1.5">
+							<svg aria-hidden="true" viewbox="0 0 24 24" class="ml-1 md:ml-3 inline-block h-4 w-4 sm:h-8 sm:w-8 transition-transform duration-300 group-hover:translate-x-2 group-hover:-translate-y-1 md:h-12 md:w-12" fill="none" stroke="currentColor" stroke-width="1.5">
 								<path d="M7 17L17 7M17 7H8M17 7V16" stroke-linecap="round" stroke-linejoin="round"></path>
 							</svg>
 						</a>
@@ -399,7 +400,7 @@
 					</div>
 				</div>
 				<div class="border-t border-zinc-800">
-					<div class="mx-auto flex flex-wrap max-w-[100rem] flex-col gap-4 px-2 py-6 font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-600 sm:px-4 md:flex-row md:items-center md:justify-between md:px-10">
+					<div class="mx-auto flex flex-wrap max-w-[100rem] flex-col gap-4 px-4 py-6 font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-600 text-center md:text-start sm:px-4 md:flex-row md:items-center md:justify-between md:px-10">
 						<span>
 							©
 							<!--
@@ -409,7 +410,7 @@
 -->
 							Ganna Sokolova
 						</span>
-						<ul class="flex gap-8">
+						<ul class="flex justify-around gap-8">
 							<li>
 								<a href="#" class="transition-colors hover:text-zinc-300">Impressum</a>
 							</li>
