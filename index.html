@@ -5,15 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Home Page</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1790440284463"></script>
-		<link rel="modulepreload" crossorigin="" href="./js/audio-player.min.js?v=1790440284463">
-		<link rel="modulepreload" crossorigin="" href="./js/common.min.js?v=1790440284463">
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1790440284463">
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1790440862525"></script>
+		<link rel="modulepreload" crossorigin="" href="./js/audio-player.min.js?v=1790440862525">
+		<link rel="modulepreload" crossorigin="" href="./js/common.min.js?v=1790440862525">
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1790440862525">
 	</head>
 	<body class="min-h-screen bg-[#050505] text-[#fafafa]">
 		<div class="wrapper">
 			<nav data-fls-header="" aria-label="Hauptnavigation" class="sticky top-0 z-50 border-b border-zinc-800 bg-[#050505]/80 backdrop-blur-sm">
-				<div class="mx-auto grid container grid-cols-2 items-center md:grid-cols-12">
+				<div class="mx-auto grid max-w-[100rem] grid-cols-2 items-center md:grid-cols-12">
 					<a href="#top" class="col-span-1 border-r border-zinc-800 px-6 py-4 font-serif text-lg italic tracking-tight md:col-span-3 md:px-10 relative z-50">G.&nbsp;Sokolova</a>
 					<span class="hidden px-6 py-4 font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-500 md:col-span-3 lg:block md:border-r md:border-zinc-800 md:px-10">Portfolio / 2026</span>
 					<div class="col-span-1 md:col-span-9 lg:col-span-6 flex items-center justify-end px-6 py-4 md:px-0 md:py-0">
@@ -46,7 +46,7 @@
 			</nav>
 			<main class="page">
 				<header id="top" class="border-b border-zinc-800">
-					<div class="mx-auto grid container grid-cols-1 md:grid-cols-12">
+					<div class="mx-auto grid max-w-[100rem] grid-cols-1 md:grid-cols-12">
 						<div class="flex flex-col md:FLEX-ROW items-end justify-between border-b border-zinc-800 px-6 py-8 font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-500 md:col-span-3 md:flex-col md:items-start md:justify-between md:border-b-0 md:border-r md:px-10 md:py-14">
 							<span>Sankt Georgen, DE</span>
 							<span class="md:mt-auto">47.9351° N</span>
@@ -64,7 +64,7 @@
 							</h1>
 						</div>
 					</div>
-					<div class="mx-auto grid container grid-cols-2 border-t border-zinc-800 md:grid-cols-4">
+					<div class="mx-auto grid max-w-[100rem] grid-cols-2 border-t border-zinc-800 md:grid-cols-4">
 						<div class="group flex flex-col gap-6 px-6 py-8 md:px-10 md:py-10">
 							<span class="font-sans text-[.625rem] tracking-[0.3em] text-zinc-600">01</span>
 							<span class="font-serif text-xl italic leading-tight text-zinc-200 transition-colors duration-300 group-hover:text-[#fafafa] md:text-2xl">Screenwriter</span>
@@ -84,7 +84,7 @@
 					</div>
 				</header>
 				<section id="poesie" class="border-b border-zinc-800">
-					<div class="mx-auto grid container grid-cols-1 md:grid-cols-12">
+					<div class="mx-auto grid max-w-[100rem] grid-cols-1 md:grid-cols-12">
 						<div class="border-b border-zinc-800 px-6 py-10 md:col-span-3 md:border-b-0 md:border-r md:px-10 md:py-16">
 							<h2 class="sticky top-24 font-sans text-[.625rem] uppercase tracking-[0.35em] text-zinc-500">
 								<span class="mb-4 block text-zinc-600">§ 02</span>
@@ -159,7 +159,7 @@
 					</div>
 				</section>
 				<section id="video" class="border-b border-zinc-800">
-					<div class="mx-auto container">
+					<div class="mx-auto max-w-[100rem]">
 						<!-- Заголовок секции -->
 						<div class="flex items-baseline justify-between border-b border-zinc-800 px-6 py-10 md:px-10">
 							<h2 class="font-sans text-[.625rem] uppercase tracking-[0.35em] text-zinc-500">
@@ -286,7 +286,7 @@
 					</div>
 				</section>
 				<section id="audio" class="border-b border-zinc-800">
-					<div class="mx-auto grid container grid-cols-1 md:grid-cols-12">
+					<div class="mx-auto grid max-w-[100rem] grid-cols-1 md:grid-cols-12">
 						<!-- Заголовок -->
 						<div class="border-b border-zinc-800 px-6 py-10 md:col-span-3 md:border-b-0 md:border-r md:px-10 md:py-16">
 							<h2 class="font-sans text-[.625rem] uppercase tracking-[0.35em] text-zinc-500">
@@ -375,13 +375,8 @@
 					</div>
 				</section>
 			</main>
-			<!--
-<footer data-fls-footer class="footer">
-<div class="footer__container"></div>
-</footer>
--->
 			<footer id="kontakt">
-				<div class="mx-auto grid container grid-cols-1 md:grid-cols-12">
+				<div class="mx-auto grid max-w-[100rem] grid-cols-1 md:grid-cols-12">
 					<div class="border-b border-zinc-800 px-2 py-10 sm:px-4 md:col-span-3 md:border-b-0 md:border-r md:px-10 md:py-16">
 						<h2 class="font-sans text-[.625rem] uppercase tracking-[0.35em] text-zinc-500">
 							<span class="mb-4 block text-zinc-600">§ 05</span>
@@ -404,7 +399,7 @@
 					</div>
 				</div>
 				<div class="border-t border-zinc-800">
-					<div class="mx-auto flex flex-wrap container flex-col gap-4 px-2 py-6 font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-600 sm:px-4 md:flex-row md:items-center md:justify-between md:px-10">
+					<div class="mx-auto flex flex-wrap max-w-[100rem] flex-col gap-4 px-2 py-6 font-sans text-[.625rem] uppercase tracking-[0.3em] text-zinc-600 sm:px-4 md:flex-row md:items-center md:justify-between md:px-10">
 						<span>
 							©
 							<!--
